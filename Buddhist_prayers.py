@@ -30,11 +30,16 @@ for item in soup.select('.waffle'):
 #data_managing
 article_data = ["-誦: ", "-持或稱頌: ", "-讀誦: ", "-"]
 transferring_data = []
+
 for item in data:
         for i in range(4):
-                if item[i+2] not in article_data[i]:
-                        article_data[i]+= item[i+2]+", "
+                split_item = item[i+2].split(",")
+                for j in range(len(split_item)):
+                        if split_item[j] not in article_data[i]:
+                                article_data[i]+= split_item[j]+", "
+                        j+=1
                 i+=1
+
 for item in data:
         transferring_data.append(item[6])
 
