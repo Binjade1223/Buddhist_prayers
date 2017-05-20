@@ -71,11 +71,11 @@ f.write("並迴向"+"\n")
 
 f.write("------------------"+"\n")
 
+k=1
 for item in transferring_data:
-        i = 1
         if item != "":
-                f.write(str(i)+". 迴向 "+ item +"\n")
-        i+=1
+                f.write(str(k)+". 迴向 "+ item +"\n")
+                k+=1
 
 f.write("------------------"+"\n")
 
