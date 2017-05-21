@@ -15,12 +15,13 @@ res = requests.get(url)
 soup = BeautifulSoup(res.text, "html.parser")
 index = 16
 data = []
+trasferring_date = raw_input("Trasferring_date >>> ")
 
 #parser
 for item in soup.select('.waffle'):
         while (index < len(item.select('td'))):
                 every_one_data = []
-                if time.strftime("%Y/") + str(int(time.strftime("%m")))+"/" +str(int(time.strftime("%d"))) in (item.select('td')[index].text):
+                if trasferring_date in (item.select('td')[index].text):
                         for i in range(1,8):
                                 every_one_data.append(item.select('td')[index + i].text)
                                 i+=1
@@ -46,7 +47,7 @@ for item in data:
 #file_writing
 f = open("Buddhism.txt","w+")
 
-f.write("迴向: "+ time.strftime("%Y/%m/%d")+"\n")
+f.write("迴向: "+ trasferring_date +"\n")
 f.write("文殊師利勇猛智"+"\n")
 f.write("普賢慧行亦復然"+"\n")
 f.write("我今迴向諸善根"+"\n")
